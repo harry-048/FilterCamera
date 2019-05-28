@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PhotoViewActivity">
+
+    <RelativeLayout
+        android:layout_alignParentTop="true"
+        android:id="@+id/topButtonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:layout_width="40dp"
+            android:layout_height="40dp">
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_marginStart="16dp"
+                android:padding="5dp"
+                android:background="@drawable/ic_left_arrow"/>
+        </LinearLayout>
+
+
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/LoadButton"
+            android:textAlignment="viewEnd"
+            android:paddingEnd="16dp"
+            android:background="#0000"
+            android:layout_alignParentEnd="true"
+            android:text="save"/>
+
+        <Button
+            android:id="@+id/loadButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/LoadButton"
+            android:textAlignment="viewEnd"
+            android:paddingEnd="16dp"
+            android:background="#0000"
+            android:visibility="invisible"
+            android:layout_alignParentEnd="true"
+            android:text="Save"/>
+
+
+
+    </RelativeLayout>
+
+
+
+    <ImageView
+        android:id="@+id/place_holder_imageview"
+        android:layout_below="@+id/topButtonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitStart"/>
+
+    <RelativeLayout
+        android:id="@+id/relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="#ffffff">
+
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/thumbnails"
+            android:weightSum="2">
+
+           <!-- <TextView
+                android:id="@+id/filterButton"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:layout_width="0dp"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:text="FILTER" />
+
+            <TextView
+                android:id="@+id/editButton"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:background="@color/colorAccent"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:text="EDIT" />-->
+
+            <Button
+                android:id="@+id/filterButton"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:background="@color/ButtonBackcolor"
+                android:layout_height="wrap_content"
+                android:textColor="@color/ButtonEnabled"
+                android:text="FILTER"/>
+            <Button
+                android:id="@+id/editButton"
+                android:layout_weight="1"
+                android:background="@color/ButtonBackcolor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/ButtonDisabled"
+                android:text="EDIT"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/seekBarLayout"
+            android:visibility="invisible"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:orientation="horizontal"
+            android:layout_above="@+id/buttonLayout"
+            android:layout_centerInParent="true"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:weightSum="3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/brightnessTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="Brightness" />
+
+                <TextView
+                    android:id="@+id/contrastTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="Contrast" />
+
+                <TextView
+                    android:id="@+id/saturationTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="Saturation" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <SeekBar
+                    android:id="@+id/seekbar_brightness"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <SeekBar
+                    android:id="@+id/seekbar_contrast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <SeekBar
+                    android:id="@+id/seekbar_saturation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/thumbnails"
+    android:layout_centerVertical="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    tools:listitem="@layout/list_thumbnail_item"
+    android:clipToPadding="false"/>
+
+
+
+       <!-- <android.support.v7.widget.RecyclerView
+            android:id="@+id/thumbnails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:clipToPadding="false"/>
+-->
+
+    </RelativeLayout>
+
+
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        android:visibility="invisible"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</RelativeLayout>
